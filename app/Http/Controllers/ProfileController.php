@@ -67,9 +67,8 @@ class ProfileController extends Controller
         }
     }
 
-    public function profile()
+    public function profile($id)
     {
-        $id = Auth::user()->id;
         $user = User::find($id);
         return view('user.show', compact('user'));
     }

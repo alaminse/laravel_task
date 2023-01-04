@@ -68,6 +68,7 @@ class RegisterController extends BaseController
             User::where('email', $user->email)->update(['remember_token'=> $success['remember_token']]);
             $success['email'] =  $user->email;
 
+
             return $this->sendResponse($success, 'User login successfully.');
         }
         else{
