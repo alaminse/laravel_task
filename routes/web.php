@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +19,13 @@ use App\Http\Controllers\Auth\AuthController;
     Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
     Route::get('registration', [AuthController::class, 'registration'])->name('register');
     Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-    Route::get('dashboard', [AuthController::class, 'dashboard']);
+    Route::get('/', [AuthController::class, 'dashboard']);
+    Route::get('/dashboard', [AuthController::class, 'dashboard']);
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 // Auth Route END
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('user/list', [ProfileController::class, 'userList'])->name('users.list');
+    Route::get('user/profile', [ProfileController::class, 'profile'])->name('user.profile');
+    Route::get('profile/create/', [ProfileController::class, 'create'])->name('profile.create');
+    Route::post('profile/store/', [ProfileController::class, 'store'])->name('profile.store');
+    Route::get('user/details/{id}', [ProfileController::class, 'userDetails'])->name('user.details');
