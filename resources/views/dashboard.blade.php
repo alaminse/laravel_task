@@ -13,7 +13,7 @@
                             @if (Auth::user()->profile == null)
                                 <a href="{{ route('profile.create')}}" class="btn btn-warning">Complete Your Profile</a>
                             @else
-                                <a href="{{ route('user.profile')}}" class="btn btn-primary">User Profile</a>
+                                <a href="{{ route('user.profile',['id' => Auth::user()->id])}}" class="btn btn-primary">User Profile</a>
                             @endif
                         </div>
                       </div>

@@ -25,7 +25,7 @@ use App\Http\Controllers\ProfileController;
 // Auth Route END
 
     Route::get('user/list', [ProfileController::class, 'userList'])->name('users.list');
-    Route::get('user/profile', [ProfileController::class, 'profile'])->name('user.profile');
+    Route::get('user/profile/{id}', [ProfileController::class, 'profile'])->name('user.profile');
     Route::get('profile/create/', [ProfileController::class, 'create'])->name('profile.create');
     Route::post('profile/store/', [ProfileController::class, 'store'])->name('profile.store');
     Route::get('user/details/{id}', [ProfileController::class, 'userDetails'])->name('user.details');
